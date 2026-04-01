@@ -25,14 +25,12 @@ public class UltimateDashboard {
     private JProgressBar progressBar = new JProgressBar(0, 100);
     private final String FILE = "tasks.dat";
 
-    // Simplified Palette
     private final Color BG = new Color(20, 20, 25), ACCENT = new Color(0, 200, 255);
 
     public UltimateDashboard() {
         tasks = loadTasks();
         tasks.forEach(model::addElement);
 
-        // Sidebar
         JPanel side = new JPanel(new GridLayout(8, 1, 5, 5));
         side.setBackground(new Color(30, 30, 35));
         side.setBorder(new EmptyBorder(10, 10, 10, 10));
@@ -44,13 +42,11 @@ public class UltimateDashboard {
         side.add(logo);
         for(int i=0; i<btns.length; i++) side.add(createBtn(btns[i], actions[i]));
 
-        // List Setup
         list.setBackground(BG);
         list.setForeground(Color.WHITE);
         list.setSelectionBackground(ACCENT);
         list.setCellRenderer(new TaskRenderer());
 
-        // Main Layout
         JPanel main = new JPanel(new BorderLayout(10, 10));
         main.setBackground(BG);
         main.setBorder(new EmptyBorder(20, 20, 20, 20));
