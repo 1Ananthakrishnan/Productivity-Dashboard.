@@ -12,11 +12,10 @@ class Task implements Serializable {
     boolean isCompleted;
     long timeSpent;
     Task(String name) { this.name = name; }
-    @Override public String toString() { return name; } // Default display
-}
+    @Override public String toString() { return name; } 
 
 public class UltimateDashboard {
-    private JFrame frame = new JFrame("Lumina Lite");
+    private JFrame frame = new JFrame("FOCUS");
     private JTextField taskField = new JTextField();
     private DefaultListModel<Task> model = new DefaultListModel<>();
     private JList<Task> list = new JList<>(model);
@@ -37,7 +36,7 @@ public class UltimateDashboard {
         String[] btns = {"▶ Start", "⏹ Stop", "✔ Done", "✖ Del", "📊 Stats", "🔔 Alert"};
         ActionListener[] actions = {e->startT(), e->stopT(), e->compT(), e->delT(), e->showC(), e->setR()};
         
-        JLabel logo = new JLabel("LUMINA", 0);
+        JLabel logo = new JLabel("Track It", 0);
         logo.setForeground(ACCENT);
         side.add(logo);
         for(int i=0; i<btns.length; i++) side.add(createBtn(btns[i], actions[i]));
